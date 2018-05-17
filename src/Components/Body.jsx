@@ -69,9 +69,9 @@ export default class Body extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-
-        <resultContain sights= {this.state.sights}/>
-        <resultContain />
+        
+        <ResultContainer sights={this.state.sights}/>
+        <ResultContainer />
 
       </div>
     );
