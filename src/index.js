@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import Header from './Components/Header.jsx';
+import axios from 'axios';
+import Search from './Components/Search.jsx';
+import PlacesList from './Components/PlacesList.jsx';
 
-import App from './components/app';
-import reducers from './reducers';
+class App extends Component {
+   constructor(props){
+       super(props);
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+       this.state = {
+           message:'Sights and Bites'
+       }
+   }
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+   
+   render(){
+       return (
+           <div>
+               <h2>{this.state.city}</h2>
+               <Header message={this.state.message} />
+               <Search /> 
+           </div>
+       );
+   }
+}
+
+ReactDOM.render(<App />, document.querySelector('.container'));
+
